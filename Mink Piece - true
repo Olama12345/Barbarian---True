@@ -1,0 +1,34 @@
+_G.Condition = true 
+While _G.Condition == true do
+wait(0.01)
+
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Flintlock,
+    [2] = Vector3.new(200.67276000976562, 9.516454696655273, -486.8582763671875)
+}
+
+game:GetService("ReplicatedStorage").Remotes.ShootEvent:FireServer(unpack(args))
+
+
+
+end
+
+
+_G.Condition = true
+while _G.Condition == true do wait()
+ local Player = workspace.Players[game.Players.LocalPlayer.Name]
+ for i, v in pairs(workspace.NPCs.Normal:GetChildren()) do
+     if v.Name == "Barbarian" then 
+           if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and Player:FindFirstChild("HumanoidRootPart") then
+               repeat
+                   if Player:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("HumanoidRootPart") then
+                       Player.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,5)
+                   end
+                   wait()
+
+               until v == nil or v.Parent == nil or not v:FindFirstChild("Humanoid") or v.Humanoid.Health <= 0
+             end
+     end
+ end
+end
