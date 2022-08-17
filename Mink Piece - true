@@ -1,5 +1,5 @@
 _G.Condition = true 
-While _G.Condition == true do
+while _G.Condition == true do
 wait(0.01)
 
 
